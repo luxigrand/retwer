@@ -169,7 +169,9 @@ const translations = {
         medium: 'Medium',
         hard: 'Hard',
         timer: 'Timer',
-        timeUp: 'Time\'s up!'
+        timeUp: 'Time\'s up!',
+        enterElement: 'Enter element name...',
+        submit: 'Submit'
     },
     tr: {
         title: 'Periyodik Tablo Tahmin Oyunu',
@@ -188,7 +190,9 @@ const translations = {
         medium: 'Orta',
         hard: 'Zor',
         timer: 'Zamanlayıcı',
-        timeUp: 'Süre doldu!'
+        timeUp: 'Süre doldu!',
+        enterElement: 'Element adını girin...',
+        submit: 'Gönder'
     }
 };
 
@@ -420,13 +424,8 @@ function createElementCell(element) {
     symbol.className = 'element-symbol';
     symbol.textContent = element.symbol;
     
-    const name = document.createElement('div');
-    name.className = 'element-name';
-    name.textContent = currentLanguage === 'tr' ? element.nameTr : element.nameEn;
-    
     cell.appendChild(number);
     cell.appendChild(symbol);
-    cell.appendChild(name);
     
     cell.addEventListener('click', () => handleElementClick(element));
     
@@ -440,13 +439,15 @@ function handleElementClick(element) {
     showQuestionModal(element);
 }
 
-// Show question modal with 4 options
+// Show question modal with options or text input based on difficulty
 function showQuestionModal(element) {
     const modal = document.getElementById('question-modal');
     const modalSymbol = document.getElementById('modal-symbol');
     const modalNumber = document.getElementById('modal-number');
     const questionText = document.getElementById('question-text');
     const optionsContainer = document.getElementById('options-container');
+    const textInputContainer = document.getElementById('text-input-container');
+    const elementInput = document.getElementById('element-input');
     const feedback = document.getElementById('feedback');
     const elementInfo = document.getElementById('element-info');
     
@@ -455,26 +456,56 @@ function showQuestionModal(element) {
     modalNumber.textContent = element.number;
     questionText.textContent = translations[currentLanguage].question;
     
-    // Generate 4 options (1 correct + 3 random wrong)
-    const options = generateOptions(element);
-    
-    // Clear previous options and info
+    // Clear previous content
     optionsContainer.innerHTML = '';
     feedback.textContent = '';
     feedback.className = 'feedback';
     elementInfo.style.display = 'none';
+    elementInput.value = '';
+    selectedAnswer = null;
     
-    // Create option buttons
-    options.forEach((option, index) => {
-        const button = document.createElement('button');
-        button.className = 'option-btn';
-        button.textContent = currentLanguage === 'tr' ? option.nameTr : option.nameEn;
-        button.dataset.elementNumber = option.number;
+    if (difficulty === 'hard') {
+        // Hard mode: Show text input
+        optionsContainer.style.display = 'none';
+        textInputContainer.style.display = 'flex';
+        elementInput.disabled = false;
+        elementInput.placeholder = translations[currentLanguage].enterElement;
+        const submitBtn = document.getElementById('submit-answer');
+        submitBtn.textContent = translations[currentLanguage].submit;
+        submitBtn.disabled = false;
+        elementInput.focus();
         
-        button.addEventListener('click', () => handleAnswerClick(button, option));
+        // Clear previous event listeners by cloning
+        const newInput = elementInput.cloneNode(true);
+        elementInput.parentNode.replaceChild(newInput, elementInput);
+        document.getElementById('element-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleTextAnswer();
+            }
+        });
+    } else {
+        // Easy/Medium mode: Show multiple choice options
+        optionsContainer.style.display = 'flex';
+        textInputContainer.style.display = 'none';
         
-        optionsContainer.appendChild(button);
-    });
+        // Generate options (4 for easy, 8 for medium)
+        const options = generateOptions(element);
+        
+        // Clear previous options
+        optionsContainer.innerHTML = '';
+        
+        // Create option buttons
+        options.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.className = 'option-btn';
+            button.textContent = currentLanguage === 'tr' ? option.nameTr : option.nameEn;
+            button.dataset.elementNumber = option.number;
+            
+            button.addEventListener('click', () => handleAnswerClick(button, option));
+            
+            optionsContainer.appendChild(button);
+        });
+    }
     
     modal.classList.add('show');
     
@@ -521,16 +552,25 @@ function stopTimer() {
 
 // Handle time up
 function handleTimeUp() {
-    const allButtons = document.querySelectorAll('.option-btn');
-    allButtons.forEach(btn => btn.disabled = true);
-    
-    // Mark correct answer
-    allButtons.forEach(btn => {
-        const btnElementNum = parseInt(btn.dataset.elementNumber);
-        if (btnElementNum === currentElement.number) {
-            btn.classList.add('correct');
-        }
-    });
+    if (difficulty === 'hard') {
+        // Hard mode: disable text input
+        const elementInput = document.getElementById('element-input');
+        const submitBtn = document.getElementById('submit-answer');
+        if (elementInput) elementInput.disabled = true;
+        if (submitBtn) submitBtn.disabled = true;
+    } else {
+        // Easy/Medium mode: disable option buttons
+        const allButtons = document.querySelectorAll('.option-btn');
+        allButtons.forEach(btn => btn.disabled = true);
+        
+        // Mark correct answer
+        allButtons.forEach(btn => {
+            const btnElementNum = parseInt(btn.dataset.elementNumber);
+            if (btnElementNum === currentElement.number) {
+                btn.classList.add('correct');
+            }
+        });
+    }
     
     // Update stats
     totalQuestions++;
@@ -562,32 +602,106 @@ function shuffleArray(array) {
     return shuffled;
 }
 
-// Generate 4 options (1 correct + 3 random wrong) based on difficulty
+// Normalize text for comparison (lowercase, trim, remove accents)
+function normalizeText(text) {
+    if (!text) return '';
+    return text.toLowerCase().trim()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // Remove accents
+        .replace(/[^\w\s]/g, ''); // Remove special characters
+}
+
+// Calculate Levenshtein distance between two strings
+function levenshteinDistance(str1, str2) {
+    const len1 = str1.length;
+    const len2 = str2.length;
+    
+    if (len1 === 0) return len2;
+    if (len2 === 0) return len1;
+    
+    const matrix = [];
+    
+    for (let i = 0; i <= len1; i++) {
+        matrix[i] = [i];
+    }
+    
+    for (let j = 0; j <= len2; j++) {
+        matrix[0][j] = j;
+    }
+    
+    for (let i = 1; i <= len1; i++) {
+        for (let j = 1; j <= len2; j++) {
+            if (str1[i - 1] === str2[j - 1]) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j] + 1,     // deletion
+                    matrix[i][j - 1] + 1,     // insertion
+                    matrix[i - 1][j - 1] + 1  // substitution
+                );
+            }
+        }
+    }
+    
+    return matrix[len1][len2];
+}
+
+// Check if user input matches element name (fuzzy matching)
+function matchesElementName(userInput, element) {
+    const normalizedInput = normalizeText(userInput);
+    const normalizedNameEn = normalizeText(element.nameEn);
+    const normalizedNameTr = normalizeText(element.nameTr);
+    
+    // Exact match (case-insensitive)
+    if (normalizedInput === normalizedNameEn || normalizedInput === normalizedNameTr) {
+        return true;
+    }
+    
+    // Calculate distances
+    const distanceEn = levenshteinDistance(normalizedInput, normalizedNameEn);
+    const distanceTr = levenshteinDistance(normalizedInput, normalizedNameTr);
+    
+    // Allow up to 2 character differences for small typos
+    // Also consider the length of the word - allow 1 typo per 5 characters
+    const maxDistance = Math.max(2, Math.floor(Math.min(normalizedNameEn.length, normalizedNameTr.length) / 5));
+    
+    return distanceEn <= maxDistance || distanceTr <= maxDistance;
+}
+
+// Generate options based on difficulty
+// Easy: 4 options (1 correct + 3 wrong)
+// Medium: 8 options (1 correct + 7 wrong)
+// Hard: null (text input mode)
 function generateOptions(correctElement) {
+    if (difficulty === 'hard') {
+        // Hard mode: no options, user types the answer
+        return null;
+    }
+    
     let wrongElements;
+    let numWrongOptions;
     
     if (difficulty === 'easy') {
-        // Easy: Wrong answers from completely different categories
+        // Easy: 4 options total (1 correct + 3 wrong)
+        numWrongOptions = 3;
+        // Wrong answers from completely different categories
         wrongElements = periodicTableData.filter(e => 
             e.number !== correctElement.number &&
             e.category !== correctElement.category
         );
-    } else if (difficulty === 'medium') {
-        // Medium: Wrong answers from different groups (but can be same category)
+    } else {
+        // Medium: 8 options total (1 correct + 7 wrong)
+        numWrongOptions = 7;
+        // Wrong answers from different groups (but can be same category)
         wrongElements = periodicTableData.filter(e => 
             e.number !== correctElement.number &&
             e.group !== correctElement.group
         );
-    } else {
-        // Hard: Wrong answers can be from same group or similar elements
-        wrongElements = periodicTableData.filter(e => 
-            e.number !== correctElement.number
-        );
     }
     
-    // Shuffle wrong elements and pick 3
+    // Shuffle wrong elements and pick needed amount
     const shuffledWrong = shuffleArray(wrongElements);
-    const selectedWrong = shuffledWrong.slice(0, 3);
+    const selectedWrong = shuffledWrong.slice(0, numWrongOptions);
     
     // Combine correct answer with wrong answers
     const allOptions = [correctElement, ...selectedWrong];
@@ -653,6 +767,63 @@ function handleAnswerClick(button, selectedElement) {
     }, 3000);
 }
 
+// Handle text answer for hard mode
+function handleTextAnswer() {
+    if (selectedAnswer !== null || !currentElement) return; // Already answered or no element
+    
+    const elementInput = document.getElementById('element-input');
+    const userInput = elementInput.value.trim();
+    
+    if (!userInput) {
+        return; // Empty input
+    }
+    
+    // Disable input
+    elementInput.disabled = true;
+    selectedAnswer = true;
+    
+    // Check if answer is correct using fuzzy matching
+    const isCorrect = matchesElementName(userInput, currentElement);
+    
+    // Update score and streak
+    totalQuestions++;
+    if (isCorrect) {
+        score++;
+        currentStreak++;
+        if (currentStreak > bestStreak) {
+            bestStreak = currentStreak;
+            localStorage.setItem('bestStreak', bestStreak);
+        }
+    } else {
+        currentStreak = 0;
+    }
+    
+    // Show feedback
+    const feedback = document.getElementById('feedback');
+    const submitBtn = document.getElementById('submit-answer');
+    submitBtn.disabled = true;
+    
+    if (isCorrect) {
+        feedback.textContent = translations[currentLanguage].correct;
+        feedback.className = 'feedback correct';
+    } else {
+        const correctName = currentLanguage === 'tr' ? currentElement.nameTr : currentElement.nameEn;
+        feedback.textContent = `${translations[currentLanguage].incorrect} ${translations[currentLanguage].correctAnswer} ${correctName}`;
+        feedback.className = 'feedback incorrect';
+    }
+    
+    // Show element information
+    showElementInfo(currentElement);
+    
+    // Update stats
+    updateStats();
+    
+    // Auto-close after 3 seconds
+    setTimeout(() => {
+        closeModal();
+    }, 3000);
+}
+
 // Show element information
 function showElementInfo(element) {
     const elementInfo = document.getElementById('element-info');
@@ -685,6 +856,17 @@ function closeModal() {
     
     // Hide element info
     document.getElementById('element-info').style.display = 'none';
+    
+    // Reset text input
+    const elementInput = document.getElementById('element-input');
+    const submitBtn = document.getElementById('submit-answer');
+    if (elementInput) {
+        elementInput.value = '';
+        elementInput.disabled = false;
+    }
+    if (submitBtn) {
+        submitBtn.disabled = false;
+    }
 }
 
 // Update stats display
@@ -725,6 +907,9 @@ function setupEventListeners() {
     
     // Reset button
     document.getElementById('reset-btn').addEventListener('click', resetScore);
+    
+    // Submit answer button for hard mode
+    document.getElementById('submit-answer').addEventListener('click', handleTextAnswer);
     
     // Close modal button
     document.getElementById('close-modal').addEventListener('click', closeModal);
