@@ -334,6 +334,20 @@ h1 {
     background: #ff0000;
 }
 
+/* Specific elements have yellow background */
+.element-cell[data-element-number="20"], /* Kalsiyum (Ca) */
+.element-cell[data-element-number="26"], /* Demir (Fe) */
+.element-cell[data-element-number="29"], /* Bakır (Cu) */
+.element-cell[data-element-number="30"], /* Çinko (Zn) */
+.element-cell[data-element-number="47"], /* Gümüş (Ag) */
+.element-cell[data-element-number="53"], /* İyot (I) */
+.element-cell[data-element-number="78"], /* Platin (Pt) */
+.element-cell[data-element-number="79"], /* Altın (Au) */
+.element-cell[data-element-number="80"], /* Cıva (Hg) */
+.element-cell[data-element-number="82"] { /* Kurşun (Pb) */
+    background: #ffff00;
+}
+
 /* Modal */
 .modal {
     display: none;
