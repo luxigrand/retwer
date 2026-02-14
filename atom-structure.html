@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atom Yapısı - Kimya Eğitim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="atom-style.css">
+</head>
+<body>
+    <div class="atom-container">
+        <header class="atom-header">
+            <button class="home-btn" onclick="window.location.href='index.html'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <span>Ana Sayfa</span>
+            </button>
+            <h1 class="atom-title">Atom Yapısı</h1>
+            <div class="language-selector-atom">
+                <button class="lang-btn-atom active" id="lang-tr-atom" onclick="switchAtomLanguage('tr')">TR</button>
+                <button class="lang-btn-atom" id="lang-en-atom" onclick="switchAtomLanguage('en')">EN</button>
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <!-- Section 1: Atomun Temel Yapısı -->
+            <section class="content-section" id="section-1">
+                <h2 class="section-title" data-tr="Atomun Temel Yapısı" data-en="Basic Structure of Atom">Atomun Temel Yapısı</h2>
+                <div class="section-content">
+                    <div class="atom-model">
+                        <div class="atom-nucleus">
+                            <div class="nucleus-label">Çekirdek</div>
+                            <div class="proton">P+</div>
+                            <div class="neutron">N</div>
+                        </div>
+                        <div class="electron-shell shell-k">
+                            <div class="electron">e-</div>
+                        </div>
+                        <div class="electron-shell shell-l">
+                            <div class="electron">e-</div>
+                            <div class="electron">e-</div>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <p data-tr="Atom, maddenin en küçük yapı taşıdır. Atom üç temel parçacıktan oluşur:" data-en="Atom is the smallest building block of matter. Atom consists of three basic particles:">
+                            Atom, maddenin en küçük yapı taşıdır. Atom üç temel parçacıktan oluşur:
+                        </p>
+                        <ul class="particle-list">
+                            <li>
+                                <strong data-tr="Proton (P+)" data-en="Proton (P+)">Proton (P+)</strong>
+                                <span data-tr=": Pozitif yüklü parçacık, çekirdekte bulunur" data-en=": Positively charged particle, found in the nucleus">: Pozitif yüklü parçacık, çekirdekte bulunur</span>
+                            </li>
+                            <li>
+                                <strong data-tr="Nötron (N)" data-en="Neutron (N)">Nötron (N)</strong>
+                                <span data-tr=": Yüksüz parçacık, çekirdekte bulunur" data-en=": Neutral particle, found in the nucleus">: Yüksüz parçacık, çekirdekte bulunur</span>
+                            </li>
+                            <li>
+                                <strong data-tr="Elektron (e-)" data-en="Electron (e-)">Elektron (e-)</strong>
+                                <span data-tr=": Negatif yüklü parçacık, çekirdek etrafında döner" data-en=": Negatively charged particle, orbits around the nucleus">: Negatif yüklü parçacık, çekirdek etrafında döner</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Elektron Katmanları -->
+            <section class="content-section" id="section-2">
+                <h2 class="section-title" data-tr="Elektron Katmanları" data-en="Electron Shells">Elektron Katmanları</h2>
+                <div class="section-content">
+                    <div class="shell-diagram">
+                        <div class="shell-visual">
+                            <div class="shell shell-k-shell">
+                                <span class="shell-name">K Katmanı</span>
+                                <span class="shell-capacity" data-tr="(Max 2 elektron)" data-en="(Max 2 electrons)">(Max 2 elektron)</span>
+                            </div>
+                            <div class="shell shell-l-shell">
+                                <span class="shell-name">L Katmanı</span>
+                                <span class="shell-capacity" data-tr="(Max 8 elektron)" data-en="(Max 8 electrons)">(Max 8 elektron)</span>
+                            </div>
+                            <div class="shell shell-m-shell">
+                                <span class="shell-name">M Katmanı</span>
+                                <span class="shell-capacity" data-tr="(Max 18 elektron)" data-en="(Max 18 electrons)">(Max 18 elektron)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <p data-tr="Elektronlar çekirdek etrafında belirli katmanlarda (yörüngelerde) bulunur:" data-en="Electrons are found in specific shells (orbitals) around the nucleus:">
+                            Elektronlar çekirdek etrafında belirli katmanlarda (yörüngelerde) bulunur:
+                        </p>
+                        <ul>
+                            <li data-tr="<strong>K Katmanı:</strong> Çekirdeğe en yakın katman, en fazla 2 elektron alır" data-en="<strong>K Shell:</strong> Closest shell to nucleus, holds maximum 2 electrons">
+                                <strong>K Katmanı:</strong> Çekirdeğe en yakın katman, en fazla 2 elektron alır
+                            </li>
+                            <li data-tr="<strong>L Katmanı:</strong> İkinci katman, en fazla 8 elektron alır" data-en="<strong>L Shell:</strong> Second shell, holds maximum 8 electrons">
+                                <strong>L Katmanı:</strong> İkinci katman, en fazla 8 elektron alır
+                            </li>
+                            <li data-tr="<strong>M Katmanı:</strong> Üçüncü katman, en fazla 18 elektron alır" data-en="<strong>M Shell:</strong> Third shell, holds maximum 18 electrons">
+                                <strong>M Katmanı:</strong> Üçüncü katman, en fazla 18 elektron alır
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Atom Numarası ve Kütle Numarası -->
+            <section class="content-section" id="section-3">
+                <h2 class="section-title" data-tr="Atom Numarası ve Kütle Numarası" data-en="Atomic Number and Mass Number">Atom Numarası ve Kütle Numarası</h2>
+                <div class="section-content">
+                    <div class="formula-box">
+                        <div class="formula-item">
+                            <h3 data-tr="Atom Numarası (Z)" data-en="Atomic Number (Z)">Atom Numarası (Z)</h3>
+                            <p class="formula" data-tr="Z = Proton sayısı = Elektron sayısı" data-en="Z = Number of protons = Number of electrons">Z = Proton sayısı = Elektron sayısı</p>
+                            <p class="formula-desc" data-tr="Atom numarası, elementin kimliğini belirler." data-en="Atomic number determines the identity of the element.">
+                                Atom numarası, elementin kimliğini belirler.
+                            </p>
+                        </div>
+                        <div class="formula-item">
+                            <h3 data-tr="Kütle Numarası (A)" data-en="Mass Number (A)">Kütle Numarası (A)</h3>
+                            <p class="formula" data-tr="A = Proton sayısı + Nötron sayısı" data-en="A = Number of protons + Number of neutrons">A = Proton sayısı + Nötron sayısı</p>
+                            <p class="formula-desc" data-tr="Kütle numarası, atomun toplam kütlesini gösterir." data-en="Mass number shows the total mass of the atom.">
+                                Kütle numarası, atomun toplam kütlesini gösterir.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="example-box">
+                        <h3 data-tr="Örnek: Karbon Atomu" data-en="Example: Carbon Atom">Örnek: Karbon Atomu</h3>
+                        <p data-tr="Karbon atomu: 6 proton, 6 nötron, 6 elektron" data-en="Carbon atom: 6 protons, 6 neutrons, 6 electrons">
+                            Karbon atomu: 6 proton, 6 nötron, 6 elektron
+                        </p>
+                        <p data-tr="Atom Numarası (Z) = 6" data-en="Atomic Number (Z) = 6">Atom Numarası (Z) = 6</p>
+                        <p data-tr="Kütle Numarası (A) = 6 + 6 = 12" data-en="Mass Number (A) = 6 + 6 = 12">Kütle Numarası (A) = 6 + 6 = 12</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: İyonlar -->
+            <section class="content-section" id="section-4">
+                <h2 class="section-title" data-tr="İyonlar" data-en="Ions">İyonlar</h2>
+                <div class="section-content">
+                    <div class="text-content">
+                        <p data-tr="İyon, elektron alışverişi yaparak yük kazanan veya kaybeden atomdur:" data-en="Ion is an atom that gains or loses charge by exchanging electrons:">
+                            İyon, elektron alışverişi yaparak yük kazanan veya kaybeden atomdur:
+                        </p>
+                        <div class="ion-types">
+                            <div class="ion-type">
+                                <h3 data-tr="Katyon (Pozitif İyon)" data-en="Cation (Positive Ion)">Katyon (Pozitif İyon)</h3>
+                                <p data-tr="Atom elektron kaybettiğinde pozitif yük kazanır. Örnek: Na⁺ (Sodyum iyonu)" data-en="When atom loses electrons, it gains positive charge. Example: Na⁺ (Sodium ion)">
+                                    Atom elektron kaybettiğinde pozitif yük kazanır. Örnek: Na⁺ (Sodyum iyonu)
+                                </p>
+                            </div>
+                            <div class="ion-type">
+                                <h3 data-tr="Anyon (Negatif İyon)" data-en="Anion (Negative Ion)">Anyon (Negatif İyon)</h3>
+                                <p data-tr="Atom elektron kazandığında negatif yük kazanır. Örnek: Cl⁻ (Klor iyonu)" data-en="When atom gains electrons, it gains negative charge. Example: Cl⁻ (Chlorine ion)">
+                                    Atom elektron kazandığında negatif yük kazanır. Örnek: Cl⁻ (Klor iyonu)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: İzotoplar -->
+            <section class="content-section" id="section-5">
+                <h2 class="section-title" data-tr="İzotoplar" data-en="Isotopes">İzotoplar</h2>
+                <div class="section-content">
+                    <div class="text-content">
+                        <p data-tr="İzotoplar, aynı atom numarasına sahip ancak farklı kütle numarasına sahip atomlardır:" data-en="Isotopes are atoms with the same atomic number but different mass numbers:">
+                            İzotoplar, aynı atom numarasına sahip ancak farklı kütle numarasına sahip atomlardır:
+                        </p>
+                        <ul>
+                            <li data-tr="Aynı sayıda protona sahiptirler (aynı element)" data-en="They have the same number of protons (same element)">
+                                Aynı sayıda protona sahiptirler (aynı element)
+                            </li>
+                            <li data-tr="Farklı sayıda nötrona sahiptirler" data-en="They have different numbers of neutrons">
+                                Farklı sayıda nötrona sahiptirler
+                            </li>
+                        </ul>
+                        <div class="example-box">
+                            <h3 data-tr="Örnek: Karbon İzotopları" data-en="Example: Carbon Isotopes">Örnek: Karbon İzotopları</h3>
+                            <p data-tr="Karbon-12: 6 proton, 6 nötron (A=12)" data-en="Carbon-12: 6 protons, 6 neutrons (A=12)">Karbon-12: 6 proton, 6 nötron (A=12)</p>
+                            <p data-tr="Karbon-14: 6 proton, 8 nötron (A=14)" data-en="Carbon-14: 6 protons, 8 neutrons (A=14)">Karbon-14: 6 proton, 8 nötron (A=14)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Periyodik Tablo ile İlişkisi -->
+            <section class="content-section" id="section-6">
+                <h2 class="section-title" data-tr="Periyodik Tablo ile İlişkisi" data-en="Relationship with Periodic Table">Periyodik Tablo ile İlişkisi</h2>
+                <div class="section-content">
+                    <div class="text-content">
+                        <p data-tr="Periyodik tabloda elementler atom numaralarına göre sıralanmıştır:" data-en="In the periodic table, elements are arranged according to their atomic numbers:">
+                            Periyodik tabloda elementler atom numaralarına göre sıralanmıştır:
+                        </p>
+                        <ul>
+                            <li data-tr="Atom numarası artışı soldan sağa, yukarıdan aşağıya doğrudur" data-en="Atomic number increases from left to right, top to bottom">
+                                Atom numarası artışı soldan sağa, yukarıdan aşağıya doğrudur
+                            </li>
+                            <li data-tr="Aynı gruptaki elementler benzer kimyasal özelliklere sahiptir" data-en="Elements in the same group have similar chemical properties">
+                                Aynı gruptaki elementler benzer kimyasal özelliklere sahiptir
+                            </li>
+                            <li data-tr="Periyot numarası, elementin en dış elektron katmanını gösterir" data-en="Period number shows the outermost electron shell of the element">
+                                Periyot numarası, elementin en dış elektron katmanını gösterir
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: Elektron Dağılımı -->
+            <section class="content-section" id="section-7">
+                <h2 class="section-title" data-tr="Elektron Dağılımı (Elektron Konfigürasyonu)" data-en="Electron Distribution (Electron Configuration)">Elektron Dağılımı (Elektron Konfigürasyonu)</h2>
+                <div class="section-content">
+                    <div class="text-content">
+                        <p data-tr="Elektronlar katmanlara belirli kurallara göre yerleşir:" data-en="Electrons are placed in shells according to specific rules:">
+                            Elektronlar katmanlara belirli kurallara göre yerleşir:
+                        </p>
+                        <div class="electron-distribution-rules">
+                            <div class="rule-item">
+                                <h3 data-tr="Aufbau Prensibi" data-en="Aufbau Principle">Aufbau Prensibi</h3>
+                                <p data-tr="Elektronlar önce en düşük enerjili katmanlara yerleşir. K → L → M → N sırasıyla doldurulur." data-en="Electrons fill the lowest energy shells first. K → L → M → N are filled in order.">
+                                    Elektronlar önce en düşük enerjili katmanlara yerleşir. K → L → M → N sırasıyla doldurulur.
+                                </p>
+                            </div>
+                            <div class="rule-item">
+                                <h3 data-tr="Pauli Dışlama Prensibi" data-en="Pauli Exclusion Principle">Pauli Dışlama Prensibi</h3>
+                                <p data-tr="Bir katmanda en fazla belirli sayıda elektron bulunabilir. K: 2, L: 8, M: 18 elektron." data-en="A shell can hold a maximum number of electrons. K: 2, L: 8, M: 18 electrons.">
+                                    Bir katmanda en fazla belirli sayıda elektron bulunabilir. K: 2, L: 8, M: 18 elektron.
+                                </p>
+                            </div>
+                            <div class="rule-item">
+                                <h3 data-tr="Hund Kuralı" data-en="Hund's Rule">Hund Kuralı</h3>
+                                <p data-tr="Aynı enerji seviyesindeki orbitallere elektronlar önce teker teker yerleşir, sonra eşleşir." data-en="Electrons in orbitals of the same energy level are placed singly first, then paired.">
+                                    Aynı enerji seviyesindeki orbitallere elektronlar önce teker teker yerleşir, sonra eşleşir.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="example-box">
+                            <h3 data-tr="Örnek: Oksijen Atomu (O) - Atom Numarası: 8" data-en="Example: Oxygen Atom (O) - Atomic Number: 8">Örnek: Oksijen Atomu (O) - Atom Numarası: 8</h3>
+                            <p data-tr="Elektron dağılımı: K katmanında 2 elektron, L katmanında 6 elektron" data-en="Electron distribution: 2 electrons in K shell, 6 electrons in L shell">
+                                Elektron dağılımı: K katmanında 2 elektron, L katmanında 6 elektron
+                            </p>
+                            <p data-tr="Toplam: 2 + 6 = 8 elektron" data-en="Total: 2 + 6 = 8 electrons">Toplam: 2 + 6 = 8 elektron</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8: İnteraktif Hesaplayıcı -->
+            <section class="content-section" id="section-8">
+                <h2 class="section-title" data-tr="Atom Hesaplayıcı" data-en="Atom Calculator">Atom Hesaplayıcı</h2>
+                <div class="section-content">
+                    <div class="calculator-box">
+                        <div class="calculator-inputs">
+                            <div class="input-group">
+                                <label data-tr="Proton Sayısı:" data-en="Number of Protons:">Proton Sayısı:</label>
+                                <input type="number" id="proton-input" min="1" max="118" value="6" oninput="calculateAtom()">
+                            </div>
+                            <div class="input-group">
+                                <label data-tr="Nötron Sayısı:" data-en="Number of Neutrons:">Nötron Sayısı:</label>
+                                <input type="number" id="neutron-input" min="0" max="200" value="6" oninput="calculateAtom()">
+                            </div>
+                            <div class="input-group">
+                                <label data-tr="Elektron Sayısı:" data-en="Number of Electrons:">Elektron Sayısı:</label>
+                                <input type="number" id="electron-input" min="0" max="118" value="6" oninput="calculateAtom()">
+                            </div>
+                        </div>
+                        <div class="calculator-results">
+                            <div class="result-item">
+                                <span class="result-label" data-tr="Atom Numarası (Z):" data-en="Atomic Number (Z):">Atom Numarası (Z):</span>
+                                <span class="result-value" id="atomic-number">6</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label" data-tr="Kütle Numarası (A):" data-en="Mass Number (A):">Kütle Numarası (A):</span>
+                                <span class="result-value" id="mass-number">12</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label" data-tr="Atom Yükü:" data-en="Atom Charge:">Atom Yükü:</span>
+                                <span class="result-value" id="atom-charge">0</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label" data-tr="İyon Durumu:" data-en="Ion Status:">İyon Durumu:</span>
+                                <span class="result-value" id="ion-status" data-tr="Nötr Atom" data-en="Neutral Atom">Nötr Atom</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Önemli Notlar -->
+            <section class="content-section" id="section-9">
+                <h2 class="section-title" data-tr="Önemli Notlar ve İpuçları" data-en="Important Notes and Tips">Önemli Notlar ve İpuçları</h2>
+                <div class="section-content">
+                    <div class="notes-grid">
+                        <div class="note-card important">
+                            <div class="note-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                    <line x1="12" y1="9" x2="12" y2="13"/>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                </svg>
+                            </div>
+                            <h3 data-tr="Önemli" data-en="Important">Önemli</h3>
+                            <p data-tr="Nötr bir atomda proton sayısı = elektron sayısıdır. Atom numarası proton sayısına eşittir." data-en="In a neutral atom, number of protons = number of electrons. Atomic number equals the number of protons.">
+                                Nötr bir atomda proton sayısı = elektron sayısıdır. Atom numarası proton sayısına eşittir.
+                            </p>
+                        </div>
+                        <div class="note-card tip">
+                            <div class="note-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="3"/>
+                                    <line x1="12" y1="21" x2="12" y2="23"/>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                    <line x1="1" y1="12" x2="3" y2="12"/>
+                                    <line x1="21" y1="12" x2="23" y2="12"/>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                                    <circle cx="12" cy="12" r="5"/>
+                                </svg>
+                            </div>
+                            <h3 data-tr="İpucu" data-en="Tip">İpucu</h3>
+                            <p data-tr="Kütle numarası yaklaşık olarak atomun toplam kütlesini verir. Proton ve nötron kütleleri yaklaşık eşittir." data-en="Mass number gives approximately the total mass of the atom. Proton and neutron masses are approximately equal.">
+                                Kütle numarası yaklaşık olarak atomun toplam kütlesini verir. Proton ve nötron kütleleri yaklaşık eşittir.
+                            </p>
+                        </div>
+                        <div class="note-card reminder">
+                            <div class="note-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                            </div>
+                            <h3 data-tr="Hatırlatma" data-en="Reminder">Hatırlatma</h3>
+                            <p data-tr="Elektronlar çok küçük kütleye sahiptir, bu yüzden kütle numarası hesaplanırken dikkate alınmaz." data-en="Electrons have very small mass, so they are not considered when calculating mass number.">
+                                Elektronlar çok küçük kütleye sahiptir, bu yüzden kütle numarası hesaplanırken dikkate alınmaz.
+                            </p>
+                        </div>
+                        <div class="note-card fact">
+                            <div class="note-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="12" y1="2" x2="12" y2="6"/>
+                                    <line x1="12" y1="18" x2="12" y2="22"/>
+                                    <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/>
+                                    <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
+                                    <line x1="2" y1="12" x2="6" y2="12"/>
+                                    <line x1="18" y1="12" x2="22" y2="12"/>
+                                    <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/>
+                                    <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+                                </svg>
+                            </div>
+                            <h3 data-tr="Bilimsel Gerçek" data-en="Scientific Fact">Bilimsel Gerçek</h3>
+                            <p data-tr="Atomun çekirdeği atomun toplam hacminin çok küçük bir kısmını kaplar, ancak kütlenin neredeyse tamamını içerir." data-en="The nucleus occupies a very small part of the atom's total volume, but contains almost all of its mass.">
+                                Atomun çekirdeği atomun toplam hacminin çok küçük bir kısmını kaplar, ancak kütlenin neredeyse tamamını içerir.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 10: Karşılaştırma Tablosu -->
+            <section class="content-section" id="section-10">
+                <h2 class="section-title" data-tr="Parçacık Karşılaştırması" data-en="Particle Comparison">Parçacık Karşılaştırması</h2>
+                <div class="section-content">
+                    <div class="comparison-table-wrapper">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th data-tr="Parçacık" data-en="Particle">Parçacık</th>
+                                    <th data-tr="Yük" data-en="Charge">Yük</th>
+                                    <th data-tr="Kütle" data-en="Mass">Kütle</th>
+                                    <th data-tr="Konum" data-en="Location">Konum</th>
+                                    <th data-tr="Sembol" data-en="Symbol">Sembol</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-tr="Proton" data-en="Proton">Proton</td>
+                                    <td>+1</td>
+                                    <td data-tr="~1 amu" data-en="~1 amu">~1 amu</td>
+                                    <td data-tr="Çekirdek" data-en="Nucleus">Çekirdek</td>
+                                    <td>P⁺</td>
+                                </tr>
+                                <tr>
+                                    <td data-tr="Nötron" data-en="Neutron">Nötron</td>
+                                    <td>0</td>
+                                    <td data-tr="~1 amu" data-en="~1 amu">~1 amu</td>
+                                    <td data-tr="Çekirdek" data-en="Nucleus">Çekirdek</td>
+                                    <td>N</td>
+                                </tr>
+                                <tr>
+                                    <td data-tr="Elektron" data-en="Electron">Elektron</td>
+                                    <td>-1</td>
+                                    <td data-tr="~0 amu" data-en="~0 amu">~0 amu</td>
+                                    <td data-tr="Çekirdek Çevresi" data-en="Around Nucleus">Çekirdek Çevresi</td>
+                                    <td>e⁻</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-content" style="margin-top: 20px;">
+                        <p><strong data-tr="Not:" data-en="Note:">Not:</strong> <span data-tr="amu = atomik kütle birimi" data-en="amu = atomic mass unit">amu = atomik kütle birimi</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 11: Örnek Problemler -->
+            <section class="content-section" id="section-11">
+                <h2 class="section-title" data-tr="Örnek Problemler ve Çözümleri" data-en="Example Problems and Solutions">Örnek Problemler ve Çözümleri</h2>
+                <div class="section-content">
+                    <div class="problem-list">
+                        <div class="problem-item">
+                            <h3 data-tr="Problem 1" data-en="Problem 1">Problem 1</h3>
+                            <p class="problem-text" data-tr="Bir atomun 11 protonu, 12 nötronu ve 10 elektronu vardır. Bu atomun atom numarası, kütle numarası ve yükü nedir?" data-en="An atom has 11 protons, 12 neutrons, and 10 electrons. What is the atomic number, mass number, and charge of this atom?">
+                                Bir atomun 11 protonu, 12 nötronu ve 10 elektronu vardır. Bu atomun atom numarası, kütle numarası ve yükü nedir?
+                            </p>
+                            <button class="solution-toggle" onclick="toggleSolution(this)" data-tr="Çözümü Göster" data-en="Show Solution">Çözümü Göster</button>
+                            <div class="solution" style="display: none;">
+                                <p><strong data-tr="Çözüm:" data-en="Solution:">Çözüm:</strong></p>
+                                <p data-tr="Atom Numarası (Z) = Proton sayısı = 11" data-en="Atomic Number (Z) = Number of protons = 11">Atom Numarası (Z) = Proton sayısı = 11</p>
+                                <p data-tr="Kütle Numarası (A) = Proton + Nötron = 11 + 12 = 23" data-en="Mass Number (A) = Protons + Neutrons = 11 + 12 = 23">Kütle Numarası (A) = Proton + Nötron = 11 + 12 = 23</p>
+                                <p data-tr="Yük = Proton - Elektron = 11 - 10 = +1 (Katyon)" data-en="Charge = Protons - Electrons = 11 - 10 = +1 (Cation)">Yük = Proton - Elektron = 11 - 10 = +1 (Katyon)</p>
+                            </div>
+                        </div>
+                        <div class="problem-item">
+                            <h3 data-tr="Problem 2" data-en="Problem 2">Problem 2</h3>
+                            <p class="problem-text" data-tr="Karbon-14 izotopunun atom numarası 6'dır. Bu izotopun kaç nötronu vardır?" data-en="Carbon-14 isotope has atomic number 6. How many neutrons does this isotope have?">
+                                Karbon-14 izotopunun atom numarası 6'dır. Bu izotopun kaç nötronu vardır?
+                            </p>
+                            <button class="solution-toggle" onclick="toggleSolution(this)" data-tr="Çözümü Göster" data-en="Show Solution">Çözümü Göster</button>
+                            <div class="solution" style="display: none;">
+                                <p><strong data-tr="Çözüm:" data-en="Solution:">Çözüm:</strong></p>
+                                <p data-tr="Kütle Numarası (A) = 14" data-en="Mass Number (A) = 14">Kütle Numarası (A) = 14</p>
+                                <p data-tr="Atom Numarası (Z) = 6 (Proton sayısı)" data-en="Atomic Number (Z) = 6 (Number of protons)">Atom Numarası (Z) = 6 (Proton sayısı)</p>
+                                <p data-tr="Nötron Sayısı = A - Z = 14 - 6 = 8 nötron" data-en="Number of Neutrons = A - Z = 14 - 6 = 8 neutrons">Nötron Sayısı = A - Z = 14 - 6 = 8 nötron</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 12: Atom Modelleri -->
+            <section class="content-section" id="section-12">
+                <h2 class="section-title" data-tr="Atom Modellerinin Tarihsel Gelişimi" data-en="Historical Development of Atomic Models">Atom Modellerinin Tarihsel Gelişimi</h2>
+                <div class="section-content">
+                    <div class="model-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1803</div>
+                            <h3 data-tr="Dalton Atom Modeli" data-en="Dalton's Atomic Model">Dalton Atom Modeli</h3>
+                            <p data-tr="John Dalton: Atomlar bölünemez, yok edilemez kürelerdir. Aynı elementin atomları özdeştir." data-en="John Dalton: Atoms are indivisible, indestructible spheres. Atoms of the same element are identical.">
+                                John Dalton: Atomlar bölünemez, yok edilemez kürelerdir. Aynı elementin atomları özdeştir.
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1897</div>
+                            <h3 data-tr="Thomson Atom Modeli" data-en="Thomson's Atomic Model">Thomson Atom Modeli</h3>
+                            <p data-tr="J.J. Thomson: Atom içinde pozitif yüklü bir küre ve içinde negatif yüklü elektronlar vardır (Üzümlü Kek Modeli)." data-en="J.J. Thomson: Atom contains a positively charged sphere with negative electrons inside (Plum Pudding Model).">
+                                J.J. Thomson: Atom içinde pozitif yüklü bir küre ve içinde negatif yüklü elektronlar vardır (Üzümlü Kek Modeli).
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1911</div>
+                            <h3 data-tr="Rutherford Atom Modeli" data-en="Rutherford's Atomic Model">Rutherford Atom Modeli</h3>
+                            <p data-tr="Ernest Rutherford: Atomun merkezinde pozitif yüklü çekirdek vardır. Elektronlar çekirdek etrafında döner." data-en="Ernest Rutherford: Atom has a positively charged nucleus at the center. Electrons orbit around the nucleus.">
+                                Ernest Rutherford: Atomun merkezinde pozitif yüklü çekirdek vardır. Elektronlar çekirdek etrafında döner.
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1913</div>
+                            <h3 data-tr="Bohr Atom Modeli" data-en="Bohr's Atomic Model">Bohr Atom Modeli</h3>
+                            <p data-tr="Niels Bohr: Elektronlar belirli enerji seviyelerinde (katmanlarda) döner. Elektronlar enerji alarak üst katmana çıkabilir." data-en="Niels Bohr: Electrons orbit in specific energy levels (shells). Electrons can jump to higher shells by absorbing energy.">
+                                Niels Bohr: Elektronlar belirli enerji seviyelerinde (katmanlarda) döner. Elektronlar enerji alarak üst katmana çıkabilir.
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1920+</div>
+                            <h3 data-tr="Modern Atom Modeli" data-en="Modern Atomic Model">Modern Atom Modeli</h3>
+                            <p data-tr="Kuantum Mekaniği: Elektronlar belirli orbitallerde bulunur. Elektronların konumu olasılık bulutları ile ifade edilir." data-en="Quantum Mechanics: Electrons exist in specific orbitals. Electron positions are expressed as probability clouds.">
+                                Kuantum Mekaniği: Elektronlar belirli orbitallerde bulunur. Elektronların konumu olasılık bulutları ile ifade edilir.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 13: Element Örnekleri -->
+            <section class="content-section" id="section-13">
+                <h2 class="section-title" data-tr="Farklı Elementlerin Atom Yapıları" data-en="Atomic Structures of Different Elements">Farklı Elementlerin Atom Yapıları</h2>
+                <div class="section-content">
+                    <div class="element-examples">
+                        <div class="element-example-card">
+                            <h3 data-tr="Hidrojen (H)" data-en="Hydrogen (H)">Hidrojen (H)</h3>
+                            <div class="element-stats">
+                                <p><strong data-tr="Atom Numarası:" data-en="Atomic Number:">Atom Numarası:</strong> 1</p>
+                                <p><strong data-tr="Proton:" data-en="Protons:">Proton:</strong> 1</p>
+                                <p><strong data-tr="Nötron:" data-en="Neutrons:">Nötron:</strong> 0 (H-1), 1 (H-2)</p>
+                                <p><strong data-tr="Elektron:" data-en="Electrons:">Elektron:</strong> 1</p>
+                                <p><strong data-tr="Elektron Dağılımı:" data-en="Electron Distribution:">Elektron Dağılımı:</strong> K: 1</p>
+                            </div>
+                            <p class="element-note" data-tr="En basit atom. Çoğunlukla H₂ molekülü halinde bulunur." data-en="Simplest atom. Mostly found as H₂ molecule.">
+                                En basit atom. Çoğunlukla H₂ molekülü halinde bulunur.
+                            </p>
+                        </div>
+                        <div class="element-example-card">
+                            <h3 data-tr="Helyum (He)" data-en="Helium (He)">Helyum (He)</h3>
+                            <div class="element-stats">
+                                <p><strong data-tr="Atom Numarası:" data-en="Atomic Number:">Atom Numarası:</strong> 2</p>
+                                <p><strong data-tr="Proton:" data-en="Protons:">Proton:</strong> 2</p>
+                                <p><strong data-tr="Nötron:" data-en="Neutrons:">Nötron:</strong> 2</p>
+                                <p><strong data-tr="Elektron:" data-en="Electrons:">Elektron:</strong> 2</p>
+                                <p><strong data-tr="Elektron Dağılımı:" data-en="Electron Distribution:">Elektron Dağılımı:</strong> K: 2</p>
+                            </div>
+                            <p class="element-note" data-tr="K katmanı tam dolu. Soygaz, reaktif değildir." data-en="K shell is full. Noble gas, not reactive.">
+                                K katmanı tam dolu. Soygaz, reaktif değildir.
+                            </p>
+                        </div>
+                        <div class="element-example-card">
+                            <h3 data-tr="Lityum (Li)" data-en="Lithium (Li)">Lityum (Li)</h3>
+                            <div class="element-stats">
+                                <p><strong data-tr="Atom Numarası:" data-en="Atomic Number:">Atom Numarası:</strong> 3</p>
+                                <p><strong data-tr="Proton:" data-en="Protons:">Proton:</strong> 3</p>
+                                <p><strong data-tr="Nötron:" data-en="Neutrons:">Nötron:</strong> 4</p>
+                                <p><strong data-tr="Elektron:" data-en="Electrons:">Elektron:</strong> 3</p>
+                                <p><strong data-tr="Elektron Dağılımı:" data-en="Electron Distribution:">Elektron Dağılımı:</strong> K: 2, L: 1</p>
+                            </div>
+                            <p class="element-note" data-tr="L katmanında 1 elektron var. Alkali metal, çok reaktiftir." data-en="1 electron in L shell. Alkali metal, very reactive.">
+                                L katmanında 1 elektron var. Alkali metal, çok reaktiftir.
+                            </p>
+                        </div>
+                        <div class="element-example-card">
+                            <h3 data-tr="Karbon (C)" data-en="Carbon (C)">Karbon (C)</h3>
+                            <div class="element-stats">
+                                <p><strong data-tr="Atom Numarası:" data-en="Atomic Number:">Atom Numarası:</strong> 6</p>
+                                <p><strong data-tr="Proton:" data-en="Protons:">Proton:</strong> 6</p>
+                                <p><strong data-tr="Nötron:" data-en="Neutrons:">Nötron:</strong> 6 (C-12), 7 (C-13), 8 (C-14)</p>
+                                <p><strong data-tr="Elektron:" data-en="Electrons:">Elektron:</strong> 6</p>
+                                <p><strong data-tr="Elektron Dağılımı:" data-en="Electron Distribution:">Elektron Dağılımı:</strong> K: 2, L: 4</p>
+                            </div>
+                            <p class="element-note" data-tr="Yaşamın temel elementi. Organik bileşiklerin yapı taşı." data-en="Fundamental element of life. Building block of organic compounds.">
+                                Yaşamın temel elementi. Organik bileşiklerin yapı taşı.
+                            </p>
+                        </div>
+                        <div class="element-example-card">
+                            <h3 data-tr="Oksijen (O)" data-en="Oxygen (O)">Oksijen (O)</h3>
+                            <div class="element-stats">
+                                <p><strong data-tr="Atom Numarası:" data-en="Atomic Number:">Atom Numarası:</strong> 8</p>
+                                <p><strong data-tr="Proton:" data-en="Protons:">Proton:</strong> 8</p>
+                                <p><strong data-tr="Nötron:" data-en="Neutrons:">Nötron:</strong> 8 (O-16), 9 (O-17), 10 (O-18)</p>
+                                <p><strong data-tr="Elektron:" data-en="Electrons:">Elektron:</strong> 8</p>
+                                <p><strong data-tr="Elektron Dağılımı:" data-en="Electron Distribution:">Elektron Dağılımı:</strong> K: 2, L: 6</p>
+                            </div>
+                            <p class="element-note" data-tr="Solunum için gerekli. O₂ molekülü halinde bulunur." data-en="Essential for respiration. Found as O₂ molecule.">
+                                Solunum için gerekli. O₂ molekülü halinde bulunur.
+                            </p>
+                        </div>
+                        <div class="element-example-card">
+                            <h3 data-tr="Sodyum (Na)" data-en="Sodium (Na)">Sodyum (Na)</h3>
+                            <div class="element-stats">
+                                <p><strong data-tr="Atom Numarası:" data-en="Atomic Number:">Atom Numarası:</strong> 11</p>
+                                <p><strong data-tr="Proton:" data-en="Protons:">Proton:</strong> 11</p>
+                                <p><strong data-tr="Nötron:" data-en="Neutrons:">Nötron:</strong> 12</p>
+                                <p><strong data-tr="Elektron:" data-en="Electrons:">Elektron:</strong> 11</p>
+                                <p><strong data-tr="Elektron Dağılımı:" data-en="Electron Distribution:">Elektron Dağılımı:</strong> K: 2, L: 8, M: 1</p>
+                            </div>
+                            <p class="element-note" data-tr="M katmanında 1 elektron var. Na⁺ iyonu oluşturur." data-en="1 electron in M shell. Forms Na⁺ ion.">
+                                M katmanında 1 elektron var. Na⁺ iyonu oluşturur.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 14: İnteraktif Quiz -->
+            <section class="content-section" id="section-14">
+                <h2 class="section-title" data-tr="Bilginizi Test Edin" data-en="Test Your Knowledge">Bilginizi Test Edin</h2>
+                <div class="section-content">
+                    <div class="quiz-container">
+                        <div id="quiz-question" class="quiz-question">
+                            <p class="question-text"></p>
+                            <div class="quiz-options"></div>
+                            <button class="quiz-submit-btn" onclick="checkQuizAnswer()" data-tr="Cevabı Kontrol Et" data-en="Check Answer">Cevabı Kontrol Et</button>
+                            <div class="quiz-feedback"></div>
+                        </div>
+                        <div class="quiz-controls">
+                            <button class="quiz-btn" onclick="startQuiz()" data-tr="Yeni Soru" data-en="New Question">Yeni Soru</button>
+                            <div class="quiz-score">
+                                <span data-tr="Doğru:" data-en="Correct:">Doğru:</span>
+                                <span id="quiz-correct">0</span>
+                                <span data-tr="Yanlış:" data-en="Wrong:">Yanlış:</span>
+                                <span id="quiz-wrong">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 15: Elektron Katman Kapasiteleri -->
+            <section class="content-section" id="section-15">
+                <h2 class="section-title" data-tr="Elektron Katman Kapasiteleri Detaylı" data-en="Detailed Electron Shell Capacities">Elektron Katman Kapasiteleri Detaylı</h2>
+                <div class="section-content">
+                    <div class="capacity-table-wrapper">
+                        <table class="capacity-table">
+                            <thead>
+                                <tr>
+                                    <th data-tr="Katman" data-en="Shell">Katman</th>
+                                    <th data-tr="Maksimum Elektron" data-en="Max Electrons">Maksimum Elektron</th>
+                                    <th data-tr="Alt Katmanlar" data-en="Subshells">Alt Katmanlar</th>
+                                    <th data-tr="Örnek Element" data-en="Example Element">Örnek Element</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>K (n=1)</td>
+                                    <td>2</td>
+                                    <td>1s²</td>
+                                    <td data-tr="Helyum (He)" data-en="Helium (He)">Helyum (He)</td>
+                                </tr>
+                                <tr>
+                                    <td>L (n=2)</td>
+                                    <td>8</td>
+                                    <td>2s² 2p⁶</td>
+                                    <td data-tr="Neon (Ne)" data-en="Neon (Ne)">Neon (Ne)</td>
+                                </tr>
+                                <tr>
+                                    <td>M (n=3)</td>
+                                    <td>18</td>
+                                    <td>3s² 3p⁶ 3d¹⁰</td>
+                                    <td data-tr="Argon (Ar)" data-en="Argon (Ar)">Argon (Ar)</td>
+                                </tr>
+                                <tr>
+                                    <td>N (n=4)</td>
+                                    <td>32</td>
+                                    <td>4s² 4p⁶ 4d¹⁰ 4f¹⁴</td>
+                                    <td data-tr="Kripton (Kr)" data-en="Krypton (Kr)">Kripton (Kr)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-content" style="margin-top: 20px;">
+                        <p data-tr="<strong>Not:</strong> 7. sınıf seviyesinde genellikle K, L, M katmanları öğretilir. N ve sonraki katmanlar daha ileri seviyede öğrenilir." data-en="<strong>Note:</strong> At 7th grade level, usually K, L, M shells are taught. N and subsequent shells are learned at higher levels.">
+                            <strong>Not:</strong> 7. sınıf seviyesinde genellikle K, L, M katmanları öğretilir. N ve sonraki katmanlar daha ileri seviyede öğrenilir.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 16: İyon Oluşumu Detaylı -->
+            <section class="content-section" id="section-16">
+                <h2 class="section-title" data-tr="İyon Oluşumu ve Kararlılık" data-en="Ion Formation and Stability">İyon Oluşumu ve Kararlılık</h2>
+                <div class="section-content">
+                    <div class="ion-formation">
+                        <div class="formation-process">
+                            <h3 data-tr="İyon Oluşum Süreçleri" data-en="Ion Formation Processes">İyon Oluşum Süreçleri</h3>
+                            <div class="process-steps">
+                                <div class="step-item">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4 data-tr="Elektron Kaybı (Oksidasyon)" data-en="Electron Loss (Oxidation)">Elektron Kaybı (Oksidasyon)</h4>
+                                        <p data-tr="Atom elektron kaybettiğinde pozitif yük kazanır. Örnek: Na → Na⁺ + e⁻" data-en="When atom loses electrons, it gains positive charge. Example: Na → Na⁺ + e⁻">
+                                            Atom elektron kaybettiğinde pozitif yük kazanır. Örnek: Na → Na⁺ + e⁻
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4 data-tr="Elektron Kazanma (Redüksiyon)" data-en="Electron Gain (Reduction)">Elektron Kazanma (Redüksiyon)</h4>
+                                        <p data-tr="Atom elektron kazandığında negatif yük kazanır. Örnek: Cl + e⁻ → Cl⁻" data-en="When atom gains electrons, it gains negative charge. Example: Cl + e⁻ → Cl⁻">
+                                            Atom elektron kazandığında negatif yük kazanır. Örnek: Cl + e⁻ → Cl⁻
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stability-rules">
+                            <h3 data-tr="Kararlılık Kuralları" data-en="Stability Rules">Kararlılık Kuralları</h3>
+                            <ul>
+                                <li data-tr="Soygazlar (8A grubu) kararlıdır çünkü en dış katmanları tam doludur." data-en="Noble gases (Group 8A) are stable because their outermost shells are full.">
+                                    Soygazlar (8A grubu) kararlıdır çünkü en dış katmanları tam doludur.
+                                </li>
+                                <li data-tr="Diğer elementler soygaz yapısına ulaşmak için iyon oluşturur." data-en="Other elements form ions to achieve noble gas configuration.">
+                                    Diğer elementler soygaz yapısına ulaşmak için iyon oluşturur.
+                                </li>
+                                <li data-tr="1A, 2A, 3A grubu elementler elektron kaybederek katyon oluşturur." data-en="Group 1A, 2A, 3A elements form cations by losing electrons.">
+                                    1A, 2A, 3A grubu elementler elektron kaybederek katyon oluşturur.
+                                </li>
+                                <li data-tr="5A, 6A, 7A grubu elementler elektron kazanarak anyon oluşturur." data-en="Group 5A, 6A, 7A elements form anions by gaining electrons.">
+                                    5A, 6A, 7A grubu elementler elektron kazanarak anyon oluşturur.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="atom-script.js"></script>
+</body>
+</html>

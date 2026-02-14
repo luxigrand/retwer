@@ -1,0 +1,12 @@
+{
+  "name": "periodic-table-game",
+  "version": "1.0.0",
+  "description": "Periodic Table Guessing Game",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000"
+  },
+  "keywords": ["periodic-table", "game", "chemistry"],
+  "author": "",
+  "license": "MIT"
+}

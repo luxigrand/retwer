@@ -153,7 +153,7 @@ let timerSeconds = 30;
 // Translations
 const translations = {
     en: {
-        title: 'Periodic Table Guessing Game',
+        title: 'Periodic Table',
         score: 'Score:',
         question: 'Which element is this?',
         correct: 'Correct!',
@@ -174,7 +174,7 @@ const translations = {
         submit: 'Submit'
     },
     tr: {
-        title: 'Periyodik Tablo Tahmin Oyunu',
+        title: 'Periyodik Tablo',
         score: 'Skor:',
         question: 'Bu hangi element?',
         correct: 'Doğru!',
